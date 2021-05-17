@@ -89,8 +89,7 @@ class _MainState extends State<Main> {
       builder: (ctx) => AlertDialog(
         title: Text('QR'),
         content: Image.network(
-          'https://loyalty.harddays.dev/img/favicons/apple-touch-icon-precomposed.png',
-          fit: BoxFit.cover,
+          'https://picsum.photos/250?image=9',
         ),
       ),
     );

@@ -52,8 +52,8 @@ class _AuthorizationState extends State<Authorization> {
         RawMaterialButton(
             fillColor: Colors.green,
             child: Text("Войти"),
-            onPressed: () {
-              CubitProvider.of<AuthCubit>(context)
+            onPressed: () async {
+              await CubitProvider.of<AuthCubit>(context)
                   .logIn(_textEditingLoginController.text, _textEditingPasswordController.text);
             }),
         RawMaterialButton(

@@ -21,7 +21,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> logIn(String login, String password) async {
     emit(UserLoadingState());
-    await Future<void>.delayed(const Duration(seconds: 0));
+    await Future.delayed(Duration(milliseconds: 1));
     LoyaltyUser? loyaltyUser = await _userService?.getUser(login);
     if (loyaltyUser == null || loyaltyUser.password != password) {
       emit(InitialUserState(error: "Ошибка Входа"));
@@ -35,14 +35,14 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> logOut() async {
     emit(UserLoadingState());
-    await Future<void>.delayed(const Duration(seconds: 0));
+    await Future.delayed(Duration(seconds: 0));
     _currentUser = null;
     emit(InitialUserState(error: "Вышли"));
   }
 
   Future<void> saveUser(LoyaltyUser loyaltyUser) async {
     emit(UserLoadingState());
-    await Future<void>.delayed(const Duration(seconds: 0));
+    await Future.delayed(Duration(seconds: 0));
     await _userService?.saveUser(loyaltyUser);
     log.v("save user done! $loyaltyUser");
     emit(InitialUserState(error: "Пользователь записан!"));
